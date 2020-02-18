@@ -10,12 +10,20 @@ public class FindInstabilitiesWithIncompleteList {
 	private ArrayList<String> unstablePairs;
 	private int instabilities;
 
-	public FindInstabilitiesWithIncompleteList(int[][] men, int[][] women, int[][] pairs) {
+	public FindInstabilitiesWithIncompleteList(int[][] men, int[][] women, int[] pairs) {
 		this.men = men;
 		this.women = women;
-		this.pairs = pairs;
+		this.pairs = new int[men.length][2];
+		addPairs(pairs);
 		unstablePairs = new ArrayList<>();
 		instabilities = 0;
+	}
+
+	private void addPairs(int[] p) {
+		for (int i = 0; i < p.length; i++) {
+			pairs[i][0] = i + 1;
+			pairs[i][1] = p[i];
+		}
 	}
 
 	public void findInstabilties() {
@@ -31,14 +39,15 @@ public class FindInstabilitiesWithIncompleteList {
 //System.out.println("j " + j);
 				int womanOfChoice = men[i][j];
 //System.out.println(" womanOfChoice " + womanOfChoice);
-//if(partnerOfMan == womanOfChoice) break;
+				if (partnerOfMan == 0)
+					break;
 				int womanPartner = findWomanPartner(womanOfChoice);
 //System.out.println(" womanPartner " + womanPartner);
 				boolean instability = womanPrefersManOverPartner(manOfHonor, womanOfChoice, womanPartner);
 				if (instability) {
 					instabilities++;
 					unstablePairs.add("{" + manOfHonor + ", " + partnerOfMan + "}");
-//System.out.println(" unstablePairs " + unstablePairs);
+					System.out.println(" unstablePairs " + unstablePairs);
 					break;
 				}
 			}
@@ -87,10 +96,10 @@ public class FindInstabilitiesWithIncompleteList {
 	}
 
 	/*
-	 * public static void main(String[] args) { int m[][] = { { 1, 2, 3, 4 }, { 4,
-	 * 1, 3, 2 }, { 2, 1, 3, 4 }, { 4, 1, 3, 2 } }; int w[][] = { { 3, 1, 2, 4 }, {
-	 * 3, 1, 2, 4 }, { 4, 1, 2, 3 }, { 2, 4, 1, 3 } }; int p[][] = { { 1, 1 }, { 2,
-	 * 2 }, { 3, 3 }, { 4, 4 } }; FindInstabilities f = new FindInstabilities(m, w,
-	 * p); f.findInstabilties(); System.out.println(f.getInstabilities()); }
+	 * public static void main(String[] args) { int m [][] = { {3,0, 0}, {1,2,0},
+	 * {3,1,2}}; int w [][] = { {2,3,0}, {2,3,0}, {3,2,1}}; /*int p [][] = { {1,1},
+	 * {2,2}, {3,3}, {4,4}}; int p [] = {3,2,1}; FindInstabilities f = new
+	 * FindInstabilities(m,w,p); f.findInstabilties();
+	 * System.out.println(f.getInstabilities()); }
 	 */
 }
