@@ -1,0 +1,64 @@
+package stableMarriageWithIncompleteLists;
+
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+import stableMarriageWithForbiddenPairs.ForbiddenPairsAlgTwo;
+
+public class Main {
+
+	public static void main(String[] args) {
+		java.io.File file = new java.io.File(
+				"/Users/areeba/eclipse-workspace/ThesisDemo/src/incompletescripts/IncompleteListScript(zeros)1.txt");
+
+		try {
+			Scanner input = new Scanner(file);
+			int limit = input.nextInt();
+			int average = limit;
+			long timeElapsed = 0;
+			while (limit > 0) {
+				int n = input.nextInt();
+				int whileCount = 0;
+
+				int[][] m = new int[n][n];
+				int[][] w = new int[n][n];
+
+				while (whileCount < n * 2) {
+					for (int i = 0; i < n; i++) {
+						for (int j = 0; j < n; j++) {
+							m[i][j] = input.nextInt();
+							//System.out.print(m[i][j]);
+						}
+						//System.out.println();
+						whileCount++;
+					}
+
+					for (int i = 0; i < n; i++) {
+						for (int j = 0; j < n; j++) {
+							w[i][j] = input.nextInt();
+							//System.out.print(w[i][j]);
+						}
+						//System.out.println();
+						whileCount++;
+					}
+				}
+
+				//long startTime = System.nanoTime();
+				//AlgoTwo fp = new AlgoTwo(m, w);
+				AlgoTwo fp = new AlgoTwo(m, w);
+				fp.algorithm();
+				//long endTime = System.nanoTime();
+				 //System.out.println(endTime - startTime);
+				//timeElapsed += endTime - startTime;
+				 //fp.printCouples();
+				// fp.printSingles();
+				limit--;
+			}
+			//System.out.println(timeElapsed / average);
+		} catch (FileNotFoundException e) {
+			System.out.println("No State Machine rules found. Please look at the instructions and try again.");
+		}
+
+	}
+
+}
