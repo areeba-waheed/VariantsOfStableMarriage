@@ -26,7 +26,7 @@ public class TestingIncompleteList {
 		
 		
 		
-		int limit = 10;
+		int limit = 4;
 		writer.write("" + limit);
 		writer.write(System.getProperty( "line.separator" ));
 		for (int i = 0; i < limit; i++) {

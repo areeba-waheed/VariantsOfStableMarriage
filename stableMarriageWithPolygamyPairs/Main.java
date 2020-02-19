@@ -18,7 +18,7 @@ public class Main {
 				while (limit > 0) {
 					
 					int n = input.nextInt(); // 2n+n is the size
-					//System.out.println(n);
+					System.out.println(n);
 					int whileCount = 0;// n*3;
 
 					int[][] m = new int[n][n * 2];
@@ -53,6 +53,12 @@ public class Main {
 					//PloygamyAlgorithmWithRounds fp = new PloygamyAlgorithmWithRounds(m, w);
 					PolygamyMarriageTimesMen fp = new PolygamyMarriageTimesMen(m,w);
 					fp.alg();
+					fp.printCouples();
+					int [] q = fp.getPairs();
+					int [][] p = makePairs(q);
+					FindInstabilitiesForPolygamy f = new FindInstabilitiesForPolygamy(m,w,p);
+					//f.findInstabilties();
+					System.out.println(f.getInstabilities());
 					long endTime = System.nanoTime();
 					//System.out.println(endTime - startTime);
 					timeElapsed += endTime - startTime;
@@ -69,6 +75,16 @@ public class Main {
 
 		}
 
+		private static int[][] makePairs(int [] q) {
+			int [][] p = new int [q.length][2];
+			for(int i = 0; i< q.length;i++) {
+				p[i][1]=q[i];
+				p[i][0] = i+1;
+			}
+			return p;
+		}
+
+		
 	
 
 }

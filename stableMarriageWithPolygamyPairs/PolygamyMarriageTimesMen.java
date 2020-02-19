@@ -51,6 +51,8 @@ public class PolygamyMarriageTimesMen {
 
 		
 	}
+	
+	public int [] getPairs() {return this.pair;}
 
 	private void copyArrayM(int[][] old, int[][] current) {
 		for (int i = 0; i < totalMen; i++) {

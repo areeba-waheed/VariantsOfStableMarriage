@@ -13,7 +13,7 @@ public class TestingPolygamyAlgorithms {
 	public static void main(String[] args) throws IOException {
 		
 		//create file
-		File file = new File("/Users/areeba/eclipse-workspace/ThesisDemo/src/PolygamyScript60.txt");
+		File file = new File("/Users/areeba/eclipse-workspace/ThesisDemo/src/PolygamyScript2.txt");
 		if (file.createNewFile())
 		{
 		    System.out.println("File is created!");
@@ -26,11 +26,11 @@ public class TestingPolygamyAlgorithms {
 		
 		
 		
-		int limit = 10000;
+		int limit = 4;
 		writer.write("" + limit);
 		writer.write(System.getProperty( "line.separator" ));
 		for (int i = 0; i < limit; i++) {
-			int rand = 60;//randomNumber(2, 9); //totalMen
+			int rand = 4;//randomNumber(2, 9); //totalMen
 			System.out.println(rand);
 			writer.write("" + rand);
 			writer.write(System.getProperty( "line.separator" ));
