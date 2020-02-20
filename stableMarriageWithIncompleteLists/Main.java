@@ -7,7 +7,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		java.io.File file = new java.io.File(
-				"/Users/areeba/eclipse-workspace/ThesisDemo/src/IncompleteListScript(zeros)1.txt");
+				"/Users/areeba/eclipse-workspace/ThesisDemo/src/IncompleteListScript(zeros).txt");
 
 		try {
 			Scanner input = new Scanner(file);
@@ -46,7 +46,7 @@ public class Main {
 				System.out.println(limit);
 //AlgoTwo fp = new AlgoTwo(m, w);
 				AlgoOne fp = new AlgoOne(m, w);
-				fp.algorithm();
+				
 //int [] q = fp.getWomenPartner();
 				int[] p = fp.getWomenPartner();
 //int [] p = reverse(q);

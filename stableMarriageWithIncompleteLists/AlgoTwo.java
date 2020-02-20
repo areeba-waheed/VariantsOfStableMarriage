@@ -32,6 +32,7 @@ public class AlgoTwo {
 		menMarried = new boolean[totalMen];
 		womenStrikes = new int[totalMen];
 		addStrikes();
+		algorithm();
 	}
 
 	public int[] getWomenPartner() {

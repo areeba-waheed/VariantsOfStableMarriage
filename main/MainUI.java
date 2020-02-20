@@ -3,10 +3,13 @@ package main;
 import java.io.File;
 import java.io.FileNotFoundException;
 import stableMarriageWithForbiddenPairs.ForbiddenMain;
+import stableMarriageWithIncompleteLists.IncompleteMain;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import testing.TestingForbiddenPairs;
+import testing.TestingIncompleteList;
 
 public class MainUI {
 
@@ -43,48 +46,69 @@ public class MainUI {
 	}
 
 	private static void runPolygamy(int coef, int size) {
-		// TODO Auto-generated method stub
-		boolean b = runPolygamyScript(size);
+
 	}
 
-	private static boolean runPolygamyScript(int size) {
-		// TODO Auto-generated method stub
-		return false;
+	private static File runPolygamyScript(int size) {
+
+		return null;
+
 	}
 
 	private static void runIncomplete(int coef, int size) {
 		// TODO Auto-generated method stub
-		boolean b = runIncompleteScript(size);
+		File f = runIncompleteScript(size);
+		IncompleteMain main = new IncompleteMain();
+
+		int average = getAverage(main.getAlgoOneInstabilities());
+
+		System.out.println("Average of instability of algOne: " + average);
+
+		average = getAverage(main.getAlgoTwoInstabilities());
+		System.out.println("Average of instability of algTwo: " + average);
+
+		deleteFile(f);
 
 	}
 
-	private static boolean runIncompleteScript(int size) {
-		// TODO Auto-generated method stub
-		return false;
+	private static File runIncompleteScript(int size) {
+		boolean b = false;
+		File file = null;
+		try {
+			TestingIncompleteList script = new TestingIncompleteList(size);
+			b = true;
+			System.out.print(b);
+			file = script.getFile();
+
+		} catch (IOException e) {
+			b = false;
+			System.out.println("No State Machine rules found. Please look at the instructions and try again. " + b);
+		}
+		return file;
 	}
 
 	private static void runForbidden(int coef, int size) {
 		// TODO Auto-generated method stub
-		File f  = runForbiddenScript(size);
+		File f = runForbiddenScript(size);
 		ForbiddenMain main = new ForbiddenMain();
 		int average = getAverage(main.getAlgoOneInstabilities());
-		
+
 		System.out.println("Average of instability of algOne: " + average);
-		
+
 		average = getAverage(main.getAlgoTwoInstabilities());
 		System.out.println("Average of instability of algTwo: " + average);
-		
+
 		deleteFile(f);
 
 	}
 
 	private static int getAverage(ArrayList<Integer> a) {
 		int t = 0;
-		for(int i = 0; i< a.size(); i++) {
+		for (int i = 0; i < a.size(); i++) {
 			int temp = a.get(i);
 			t = t + temp;
 		}
-		return t/a.size();
+		return t / a.size();
 	}
 
 	private static void deleteFile(File f) {
@@ -98,9 +122,9 @@ public class MainUI {
 		try {
 			TestingForbiddenPairs script = new TestingForbiddenPairs(size);
 			b = true;
-			//System.out.print(b);
+			// System.out.print(b);
 			file = script.getFile();
-			
+
 		} catch (IOException e) {
 			b = false;
 			System.out.println("No State Machine rules found. Please look at the instructions and try again. " + b);

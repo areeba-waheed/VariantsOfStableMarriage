@@ -45,6 +45,7 @@ public class AlgoOne {
 		menPartner = new int[totalMen];
 		marriedWomen = new boolean[totalMen];
 		manNotAvailable = new boolean[totalMen];
+		algorithm();
 	}
 
 	public void algorithm() {
@@ -155,4 +156,12 @@ public class AlgoOne {
 	public void printSingles() {
 		System.out.println(menSingles);
 	}
+
+
+	public int[] getPair() {
+		// TODO Auto-generated method stub
+		return this.menPartner;
+	}
+
+
 }

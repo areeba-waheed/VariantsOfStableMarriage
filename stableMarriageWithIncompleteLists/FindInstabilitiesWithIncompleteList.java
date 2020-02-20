@@ -43,11 +43,12 @@ public class FindInstabilitiesWithIncompleteList {
 					break;
 				int womanPartner = findWomanPartner(womanOfChoice);
 //System.out.println(" womanPartner " + womanPartner);
-				boolean instability = womanPrefersManOverPartner(manOfHonor, womanOfChoice, womanPartner);
+				boolean instability = womanPrefersManOverPartner(womanPartner, womanOfChoice, manOfHonor);
 				if (instability) {
 					instabilities++;
 					unstablePairs.add("{" + manOfHonor + ", " + partnerOfMan + "}");
-					System.out.println(" unstablePairs " + unstablePairs);
+					//System.out.println(" unstablePairs " + unstablePairs);
+					//System.out.println(" woman " + womanOfChoice + " prefers " + manOfHonor);
 					break;
 				}
 			}
@@ -72,8 +73,11 @@ public class FindInstabilitiesWithIncompleteList {
 	private boolean womanPrefersManOverPartner(int man, int woman, int womanPartner) {
 		int rankOfMan = findRank(woman, man, women);
 		int rankOfCurrentPartner = findRank(woman, womanPartner, women);
-		if (rankOfMan < rankOfCurrentPartner)
+		if (rankOfMan < rankOfCurrentPartner) {
+			//System.out.println("rank of man " + rankOfMan);
+			//System.out.println("rankOfCurrentPartner " + rankOfCurrentPartner);
 			return true;
+		}
 		else
 			return false;
 
@@ -85,7 +89,7 @@ public class FindInstabilitiesWithIncompleteList {
 			m[i] = array[man - 1][i];
 		}
 		for (int j = 0; j < m.length; j++) { // for all women in choice
-////System.out.println(" m " + j + " " + m[j]); // woman's list
+//////System.out.println(" m " + j + " " + m[j]); // woman's list
 			if (m[j] == woman) { // if that woman exists
 
 				return j; // return the index of that woman's existence
@@ -95,11 +99,54 @@ public class FindInstabilitiesWithIncompleteList {
 		return 0;
 	}
 
+	
+	/*
+	 * 1 : 2 1 3 4 
+man 2 : 1 2 4 3 
+man 3 : 1 3 2 0 
+man 4 : 1 4 2 3 
+woman 1 : 2 3 1 0 
+woman 2 : 1 2 4 0 
+woman 3 : 2 0 0 0 
+woman 4 : 4 3 1 2 
+man 3, woman 1
+man 1, woman 2
+man 4, woman 4
+ unstablePairs [{1, 3}]*/
+	
 	/*
 	 * public static void main(String[] args) { int m [][] = { {3,0, 0}, {1,2,0},
 	 * {3,1,2}}; int w [][] = { {2,3,0}, {2,3,0}, {3,2,1}}; /*int p [][] = { {1,1},
 	 * {2,2}, {3,3}, {4,4}}; int p [] = {3,2,1}; FindInstabilities f = new
 	 * FindInstabilities(m,w,p); f.findInstabilties();
-	 * System.out.println(f.getInstabilities()); }
+	 * //System.out.println(f.getInstabilities()); }
 	 */
+	
+	public static void main(String[] args) {
+		
+		int m [][] = {
+				{2,1,3,4},
+				{1,2,4,3},
+				{1,3,2,0},
+				{1,4,2,3}
+		};
+		
+		int w [][] = {
+				{2,3,1,0},
+				{1,2,4,0},
+				{2,0,0,0},
+				{4,3,1,2}		
+		};
+		
+		int [] pairs = {3,1,0,4};
+		FindInstabilitiesWithIncompleteList f = new FindInstabilitiesWithIncompleteList(m,w,pairs); 
+		f.findInstabilties();
+		//System.out.println("instabilities" + f.getInstabilities()); 
+	}
+
+
+//instable if a man prefers a woman who is married to another man and that woman prefers that man over current partner.
+	//dont care about singles
+	
+
 }
