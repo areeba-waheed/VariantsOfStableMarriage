@@ -143,8 +143,9 @@ public class ForbiddenPairsAlgOne {
 	public int getSingles() { return this.singles*2;}
     
     public void printPairs() {
-    	System.out.println(Arrays.toString(pairs.toArray()));
+    	System.out.println("Forbidden AglOne Pairs: ");
     	for(int i =0; i< pair.length;i++) {
+    		if(pair[i] != 0)
     		System.out.println("man " +(i+1)+ " woman " + pair[i]);
     	}
     }

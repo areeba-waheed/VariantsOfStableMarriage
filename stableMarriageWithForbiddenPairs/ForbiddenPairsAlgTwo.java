@@ -78,6 +78,7 @@ public class ForbiddenPairsAlgTwo {
     }
     
     public void printCouples() {
+    	System.out.println("Forbidden AglTwo Pairs: ");
     	for(int i =0; i<womenPartner.length; i++) {
     		if(womenPartner[i] != 0) {
     			System.out.println("man "+ womenPartner[i] + ", woman " + (i+1));
