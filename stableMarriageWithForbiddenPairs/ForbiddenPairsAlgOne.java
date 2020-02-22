@@ -140,7 +140,7 @@ public class ForbiddenPairsAlgOne {
 		return result;
 	}
 
-	public int getSingles() { return this.singles*2;}
+	public int getSingles() { return this.singles;}
     
     public void printPairs() {
     	System.out.println("Forbidden AglOne Pairs: ");

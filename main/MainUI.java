@@ -61,11 +61,15 @@ public class MainUI {
 		IncompleteMain main = new IncompleteMain();
 
 		int average = getAverage(main.getAlgoOneInstabilities());
-
+		int singles = getAverage(main.getsinglesForAlgoOne());
 		System.out.println("Average of instability of algOne: " + average);
-
+		System.out.println("Average of singles of algOne: " + singles);
+		
+		
+		singles = getAverage(main.getsinglesForAlgoTwo());
 		average = getAverage(main.getAlgoTwoInstabilities());
 		System.out.println("Average of instability of algTwo: " + average);
+		System.out.println("Average of singles of algTwo: " + singles);
 
 		deleteFile(f);
 
@@ -92,11 +96,14 @@ public class MainUI {
 		File f = runForbiddenScript(size);
 		ForbiddenMain main = new ForbiddenMain();
 		int average = getAverage(main.getAlgoOneInstabilities());
-
+		int singles = getAverage(main.getsinglesForAlgoOne());
 		System.out.println("Average of instability of algOne: " + average);
+		System.out.println("Average of singles of algOne: " + singles);
 
+		singles = getAverage(main.getsinglesForAlgoTwo());
 		average = getAverage(main.getAlgoTwoInstabilities());
 		System.out.println("Average of instability of algTwo: " + average);
+		System.out.println("Average of singles of algTwo: " + singles);
 
 		deleteFile(f);
 
@@ -105,8 +112,8 @@ public class MainUI {
 	private static int getAverage(ArrayList<Integer> a) {
 		int t = 0;
 		for (int i = 0; i < a.size(); i++) {
-			int temp = a.get(i);
-			t = t + temp;
+			
+			t += a.get(i);
 		}
 		return t / a.size();
 	}

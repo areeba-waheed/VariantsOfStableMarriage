@@ -160,4 +160,9 @@ public class AlgoTwo {
 	public void printSingles() {
 		System.out.println(menSingles);
 	}
+
+	public int getSingles() {
+		// TODO Auto-generated method stub
+		return this.menSingles.size();
+	}
 }

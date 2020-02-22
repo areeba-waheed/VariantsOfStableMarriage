@@ -163,5 +163,10 @@ public class AlgoOne {
 		return this.menPartner;
 	}
 
+	public int getSingles() {
+		// TODO Auto-generated method stub
+		return this.menSingles.size();
+	}
+
 
 }

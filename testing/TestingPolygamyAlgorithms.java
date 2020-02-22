@@ -13,7 +13,7 @@ public class TestingPolygamyAlgorithms {
 	public static void main(String[] args) throws IOException {
 		
 		//create file
-		File file = new File("/Users/areeba/eclipse-workspace/ThesisDemo/src/PolygamyScript2.txt");
+		File file = new File("/Users/areeba/eclipse-workspace/ThesisDemo/src/PolygamyScript.txt");
 		if (file.createNewFile())
 		{
 		    System.out.println("File is created!");

@@ -99,6 +99,8 @@ public class FIndInstabilitiesWithForbiddenPairs {
 		return 0;
 	}
 
+
+
 	/*
 	  public static void main(String[] args) { 
 		  int m[][] = { 

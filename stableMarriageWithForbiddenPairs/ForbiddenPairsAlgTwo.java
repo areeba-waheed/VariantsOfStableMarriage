@@ -161,5 +161,9 @@ public class ForbiddenPairsAlgTwo {
 		}
 		return false;
 	}
+	public int getSingles() {
+		// TODO Auto-generated method stub
+		return this.menSingles.size();
+	}
 
 }

@@ -11,6 +11,8 @@ public class ForbiddenMain {
 	int n;
 	ArrayList<Integer> arrayForAlgoOne;
 	ArrayList<Integer> arrayForAlgoTwo;
+	ArrayList<Integer> singlesForAlgoOne;
+	ArrayList<Integer> singlesForAlgoTwo;
 	
 	public ForbiddenMain() {
 		java.io.File file = new java.io.File(
@@ -29,26 +31,28 @@ public class ForbiddenMain {
 			p = new int[n];
 			arrayForAlgoOne = new ArrayList<>();
 			arrayForAlgoTwo = new ArrayList<>();
+			singlesForAlgoOne = new ArrayList<>();
+			singlesForAlgoTwo = new ArrayList<>();
 
 			while (whileCount < n * 2) {
 
 				for (int i = 0; i < n; i++) {
-					System.out.print("man " +(i+1) + " : ");
+					//System.out.print("man " +(i+1) + " : ");
 					for (int j = 0; j < n; j++) {
 						m[i][j] = input.nextInt();
-						 System.out.print(m[i][j] + " ");
+						// System.out.print(m[i][j] + " ");
 					}
-					 System.out.println();
+					 //System.out.println();
 					whileCount++;
 				}
 
 				for (int i = 0; i < n; i++) {
-					System.out.print("woman " +(i+1) + " : ");
+					//System.out.print("woman " +(i+1) + " : ");
 					for (int j = 0; j < n; j++) {
 						w[i][j] = input.nextInt();
-						 System.out.print(w[i][j] + " ");
+						 //System.out.print(w[i][j] + " ");
 					}
-					 System.out.println();
+					 //System.out.println();
 					whileCount++;
 				}
 			}
@@ -81,16 +85,19 @@ public class ForbiddenMain {
 
 	public void algoOne() {
 		ForbiddenPairsAlgOne fpa = new ForbiddenPairsAlgOne(m, w);
-		// System.out.println("Singles: " + fpa.getSingles());
-		fpa.printPairs();
+		singlesForAlgoOne.add(fpa.getSingles());
+		//System.out.println("singles for algOne = " + fpa.getSingles());
+		//fpa.printPairs();
 		p = fpa.getPair();
 	}
 
 	public void algoTwo() {
 		ForbiddenPairsAlgTwo fp = new ForbiddenPairsAlgTwo(m, w);
 		fp.matchMaker();
-		fp.printCouples();
+		singlesForAlgoTwo.add(fp.getSingles());
+		//fp.printCouples();
 		p = reverse(fp.getWomenPartner());
+		//System.out.println("singles for algTwo = " + fp.getSingles());
 	}
 
 	private static int[] reverse(int[] q) {
@@ -111,5 +118,15 @@ public class ForbiddenMain {
 	}
 	
 	public void clearPairs() {this.p = new int[n];}
+
+	public ArrayList<Integer> getsinglesForAlgoOne() {
+		// TODO Auto-generated method stub
+		return this.singlesForAlgoOne;
+	}
+
+	public ArrayList<Integer> getsinglesForAlgoTwo() {
+		// TODO Auto-generated method stub
+		return this.singlesForAlgoTwo;
+	}
 
 }

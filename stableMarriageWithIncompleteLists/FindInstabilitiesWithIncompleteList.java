@@ -145,6 +145,8 @@ man 4, woman 4
 	}
 
 
+
+
 //instable if a man prefers a woman who is married to another man and that woman prefers that man over current partner.
 	//dont care about singles
 	

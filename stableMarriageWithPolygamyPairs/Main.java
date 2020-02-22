@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Main {
 
 		public static void main(String[] args) {
-			java.io.File file = new java.io.File("/Users/areeba/eclipse-workspace/ThesisDemo/src/PolygamyScript2.txt");// "/Users/areeba/eclipse-workspace/ThesisDemo/src/WeirdList.txt");
+			java.io.File file = new java.io.File("/Users/areeba/eclipse-workspace/ThesisDemo/src/PolygamyScript.txt");// "/Users/areeba/eclipse-workspace/ThesisDemo/src/WeirdList.txt");
 
 			try {
 				Scanner input = new Scanner(file);
@@ -57,7 +57,7 @@ public class Main {
 					int [] q = fp.getPairs();
 					int [][] p = makePairs(q);
 					FindInstabilitiesForPolygamy f = new FindInstabilitiesForPolygamy(m,w,p);
-					//f.findInstabilties();
+					f.findInstabilties();
 					System.out.println(f.getInstabilities());
 					long endTime = System.nanoTime();
 					//System.out.println(endTime - startTime);
@@ -67,7 +67,7 @@ public class Main {
 					// fp.printSingles();
 					limit--;
 				}
-				System.out.println(timeElapsed/average);
+				//System.out.println(timeElapsed/average);
 
 			} catch (FileNotFoundException e) {
 				System.out.println("No State Machine rules found. Please look at the instructions and try again.");
