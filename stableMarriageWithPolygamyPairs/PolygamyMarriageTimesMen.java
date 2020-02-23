@@ -47,6 +47,7 @@ public class PolygamyMarriageTimesMen {
 		womenPref = new int[totalMen * 2][totalMen];
 		copyArrayM(m, menPref);
 		copyArrayW(w, womenPref);
+		alg();
 		// singles = 0;
 
 		

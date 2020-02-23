@@ -4,12 +4,14 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import stableMarriageWithForbiddenPairs.ForbiddenMain;
 import stableMarriageWithIncompleteLists.IncompleteMain;
+import stableMarriageWithPolygamyPairs.PolygamyMain;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import testing.TestingForbiddenPairs;
 import testing.TestingIncompleteList;
+import testing.TestingPolygamyAlgorithms;
 
 public class MainUI {
 
@@ -46,12 +48,39 @@ public class MainUI {
 	}
 
 	private static void runPolygamy(int coef, int size) {
+		File f = runPolygamyScript(size);
+		PolygamyMain main = new PolygamyMain();
+
+		int average = getAverage(main.getAlgoOneInstabilities());
+		//int singles = getAverage(main.getsinglesForAlgoOne());
+		System.out.println("Average of instability of algOne: " + average);
+		//System.out.println("Average of singles of algOne: " + singles);
+		
+		
+		//singles = getAverage(main.getsinglesForAlgoTwo());
+		average = getAverage(main.getAlgoTwoInstabilities());
+		System.out.println("Average of instability of algTwo: " + average);
+		//System.out.println("Average of singles of algTwo: " + singles);
+
+		//deleteFile(f);
 
 	}
 
 	private static File runPolygamyScript(int size) {
 
-		return null;
+		boolean b = false;
+		File file = null;
+		try {
+			TestingPolygamyAlgorithms script = new TestingPolygamyAlgorithms(size);
+			//b = true;
+			System.out.print(b);
+			file = script.getFile();
+
+		} catch (IOException e) {
+			b = false;
+			System.out.println("No State Machine rules found. Please look at the instructions and try again. " + b);
+		}
+		return file;
 
 	}
 

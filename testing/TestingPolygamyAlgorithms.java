@@ -7,13 +7,12 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class TestingPolygamyAlgorithms {
+	File file;
 //randomly generate numbers for multiple times
 //random number should be the number of totalMen
 //that number will be the limit to the random preference list
-	public static void main(String[] args) throws IOException {
-		
-		//create file
-		File file = new File("/Users/areeba/eclipse-workspace/ThesisDemo/src/PolygamyScript.txt");
+	public TestingPolygamyAlgorithms(int size) throws IOException  {
+		file = new File("/Users/areeba/eclipse-workspace/ThesisDemo/src/PolygamyScript.txt");
 		if (file.createNewFile())
 		{
 		    System.out.println("File is created!");
@@ -26,12 +25,12 @@ public class TestingPolygamyAlgorithms {
 		
 		
 		
-		int limit = 4;
+		int limit = size;
 		writer.write("" + limit);
 		writer.write(System.getProperty( "line.separator" ));
 		for (int i = 0; i < limit; i++) {
-			int rand = 4;//randomNumber(2, 9); //totalMen
-			System.out.println(rand);
+			int rand = randomNumber(2, size); //totalMen
+			//System.out.println(rand);
 			writer.write("" + rand);
 			writer.write(System.getProperty( "line.separator" ));
 			
@@ -45,7 +44,7 @@ public class TestingPolygamyAlgorithms {
 					    if (!numbers.contains(random)) {
 					    	
 					        numbers.add(random);
-					        System.out.print(random);
+					        //System.out.print(random);
 					        writer.write("" +random + " ");
 					    	
 					    }
@@ -57,7 +56,7 @@ public class TestingPolygamyAlgorithms {
 					    if (!numbers.contains(random)) {
 					    	
 					        numbers.add(random);
-					        System.out.print(random);
+					        //System.out.print(random);
 					        writer.write("" +random + " ");
 					    	
 					    }
@@ -66,13 +65,18 @@ public class TestingPolygamyAlgorithms {
 					
 					
 					
-				System.out.println();
+				//System.out.println();
 				writer.write(System.getProperty( "line.separator" ));
 				count++;
 			}
 		}
 
 		writer.close();
+		
+	}
+	
+	public File getFile() {return this.file;}
+	public static void main(String[] args) {
 	}
 
 	public static int randomNumber(int min, int max) {

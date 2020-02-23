@@ -52,6 +52,7 @@ public class PolygamyAlgorithmWIthRounds {
 		womenPref = new int[totalMen * 2][totalMen];
 		copyArrayM(m, menPref);
 		copyArrayW(w, womenPref);
+		alg();
 		// singles = 0;
 
 	}
@@ -91,6 +92,8 @@ public class PolygamyAlgorithmWIthRounds {
 		pair[woman - 1] = man;
 
 	}
+	
+	public int [] getPairs() {return this.pair;}
 
 	private void copyArrayM(int[][] old, int[][] current) {
 		for (int i = 0; i < totalMen; i++) {

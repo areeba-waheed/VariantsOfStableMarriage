@@ -42,7 +42,7 @@ public class FindInstabilitiesForPolygamy {
 						if(findNumberOfMarriages(currentPartner) > marriages) {
 							instabilities++;
 							unstablePairs.add("{" + manOfHonor + ", " + choice + "}");
-							System.out.println(" unstablePairs " + unstablePairs);
+							//System.out.println(" unstablePairs " + unstablePairs);
 						}
 					}
 				}
