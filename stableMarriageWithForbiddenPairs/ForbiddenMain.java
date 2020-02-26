@@ -13,6 +13,11 @@ public class ForbiddenMain {
 	ArrayList<Integer> arrayForAlgoTwo;
 	ArrayList<Integer> singlesForAlgoOne;
 	ArrayList<Integer> singlesForAlgoTwo;
+	ArrayList<Integer> unhappinessForAlgoOneMAN;
+	ArrayList<Integer> unhappinessForAlgoOneWOMAN;
+	ArrayList<Integer> unhappinessForAlgoTwoMAN;
+	ArrayList<Integer> unhappinessForAlgoTwoWOMAN;
+	
 	
 	public ForbiddenMain() {
 		java.io.File file = new java.io.File(
@@ -33,6 +38,10 @@ public class ForbiddenMain {
 			arrayForAlgoTwo = new ArrayList<>();
 			singlesForAlgoOne = new ArrayList<>();
 			singlesForAlgoTwo = new ArrayList<>();
+			unhappinessForAlgoOneMAN = new ArrayList<>();
+			unhappinessForAlgoOneWOMAN = new ArrayList<>();
+			unhappinessForAlgoTwoMAN = new ArrayList<>();
+			unhappinessForAlgoTwoWOMAN = new ArrayList<>();
 
 			while (whileCount < n * 2) {
 
@@ -62,12 +71,31 @@ public class ForbiddenMain {
 			FIndInstabilitiesWithForbiddenPairs f = new FIndInstabilitiesWithForbiddenPairs(m, w, p); 
 			f.findInstabilties(); 
 			arrayForAlgoOne.add(f.getInstabilities());
+			
+			SumOfUnhappiness man1 = new SumOfUnhappiness(m,w,p);
+			man1.findUnhappinessOfMan();
+			unhappinessForAlgoOneMAN.add(man1.getUnhappinessMan());
+			//System.out.println("unhappines of man in algoOne: " + man1.getUnhappinessMan());
+			
+			man1.findUnhappinessOfWoman();
+			unhappinessForAlgoOneWOMAN.add(man1.getUnhappinessWoman());
+			//System.out.println("unhappines of woman in algoOne: " + man1.getUnhappinessWoman());
+			
 			clearPairs();
 			
 			algoTwo();
 			FIndInstabilitiesWithForbiddenPairs fp = new FIndInstabilitiesWithForbiddenPairs(m, w, p); 
 			fp.findInstabilties(); 
 			arrayForAlgoTwo.add(fp.getInstabilities());
+			
+			SumOfUnhappiness man = new SumOfUnhappiness(m,w,p);
+			man.findUnhappinessOfMan();
+			unhappinessForAlgoTwoMAN.add(man.getUnhappinessMan());
+			//System.out.println("unhappines of man in algoTwo: " + man.getUnhappinessMan());
+			
+			man.findUnhappinessOfWoman();
+			unhappinessForAlgoTwoWOMAN.add(man.getUnhappinessWoman());
+			//System.out.println("unhappines of woman in algoTwo: " + man.getUnhappinessWoman());
 		
 			
 			
@@ -80,8 +108,12 @@ public class ForbiddenMain {
 	}
 	
 	public ArrayList<Integer> getAlgoOneInstabilities() { return this.arrayForAlgoOne;}
-
 	public ArrayList<Integer> getAlgoTwoInstabilities() { return this.arrayForAlgoTwo;}
+	public ArrayList<Integer> getunhappinessForAlgoOneMAN() { return this.unhappinessForAlgoOneMAN;}
+	public ArrayList<Integer> getunhappinessForAlgoOneWOMAN() { return this.unhappinessForAlgoOneWOMAN;}
+	public ArrayList<Integer> getunhappinessForAlgoTwoMAN() { return this.unhappinessForAlgoTwoMAN;}
+	public ArrayList<Integer> getunhappinessForAlgoTwoWOMAN() { return this.unhappinessForAlgoTwoWOMAN;}
+
 
 	public void algoOne() {
 		ForbiddenPairsAlgOne fpa = new ForbiddenPairsAlgOne(m, w);

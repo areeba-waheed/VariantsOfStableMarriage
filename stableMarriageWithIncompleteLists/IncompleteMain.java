@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import stableMarriageWithForbiddenPairs.FIndInstabilitiesWithForbiddenPairs;
+import stableMarriageWithForbiddenPairs.SumOfUnhappiness;
 
 public class IncompleteMain {
 	int[][] m;
@@ -15,6 +16,10 @@ public class IncompleteMain {
 	ArrayList<Integer> arrayForAlgoTwo;
 	ArrayList<Integer> singlesForAlgoOne;
 	ArrayList<Integer> singlesForAlgoTwo;
+	ArrayList<Integer> unhappinessForAlgoOneMAN;
+	ArrayList<Integer> unhappinessForAlgoOneWOMAN;
+	ArrayList<Integer> unhappinessForAlgoTwoMAN;
+	ArrayList<Integer> unhappinessForAlgoTwoWOMAN;
 	
 
 	public IncompleteMain() {
@@ -36,6 +41,10 @@ public class IncompleteMain {
 				arrayForAlgoTwo = new ArrayList<>();
 				singlesForAlgoOne = new ArrayList<>();
 				singlesForAlgoTwo = new ArrayList<>();
+				unhappinessForAlgoOneMAN = new ArrayList<>();
+				unhappinessForAlgoOneWOMAN = new ArrayList<>();
+				unhappinessForAlgoTwoMAN = new ArrayList<>();
+				unhappinessForAlgoTwoWOMAN = new ArrayList<>();
 
 				while (whileCount < n * 2) {
 
@@ -63,17 +72,36 @@ public class IncompleteMain {
 				algoOne();
 				FindInstabilitiesWithIncompleteList f = new FindInstabilitiesWithIncompleteList(m, w, p);
 				f.findInstabilties();
-				System.out.println("instability for algOne = " + f.getInstabilities());
+				//System.out.println("instability for algOne = " + f.getInstabilities());
 				arrayForAlgoOne.add(f.getInstabilities());
+				
+				SumOfUnhappiness man1 = new SumOfUnhappiness(m,w,p);
+				man1.findUnhappinessOfMan();
+				unhappinessForAlgoOneMAN.add(man1.getUnhappinessMan());
+				//System.out.println("unhappines of man in algoOne: " + man1.getUnhappinessMan());
+				
+				man1.findUnhappinessOfWoman();
+				unhappinessForAlgoOneWOMAN.add(man1.getUnhappinessWoman());
+				//System.out.println("unhappines of woman in algoOne: " + man1.getUnhappinessWoman());
+			
 				
 				clearPairs();
 				
 				algoTwo();
 				FIndInstabilitiesWithForbiddenPairs fp = new FIndInstabilitiesWithForbiddenPairs(m, w, p);
 				fp.findInstabilties();
-				System.out.println("instability for AlgoTwo = " + fp.getInstabilities());
+				//System.out.println("instability for AlgoTwo = " + fp.getInstabilities());
 				arrayForAlgoTwo.add(fp.getInstabilities());
 				
+				SumOfUnhappiness man = new SumOfUnhappiness(m,w,p);
+				man.findUnhappinessOfMan();
+				unhappinessForAlgoTwoMAN.add(man.getUnhappinessMan());
+				//System.out.println("unhappines of man in algoTwo: " + man.getUnhappinessMan());
+				
+				man.findUnhappinessOfWoman();
+				unhappinessForAlgoTwoWOMAN.add(man.getUnhappinessWoman());
+				//System.out.println("unhappines of woman in algoTwo: " + man.getUnhappinessWoman());
+			
 				
 				limit--;
 			}
@@ -115,23 +143,29 @@ public class IncompleteMain {
 	public ArrayList<Integer> getsinglesForAlgoTwo() {
 		return this.singlesForAlgoTwo;
 	}
+	
+	public ArrayList<Integer> getunhappinessForAlgoOneMAN() { return this.unhappinessForAlgoOneMAN;}
+	public ArrayList<Integer> getunhappinessForAlgoOneWOMAN() { return this.unhappinessForAlgoOneWOMAN;}
+	public ArrayList<Integer> getunhappinessForAlgoTwoMAN() { return this.unhappinessForAlgoTwoMAN;}
+	public ArrayList<Integer> getunhappinessForAlgoTwoWOMAN() { return this.unhappinessForAlgoTwoWOMAN;}
+
 
 	public void algoOne() {
 		AlgoOne fpa = new AlgoOne(m, w);
 		singlesForAlgoOne.add(fpa.getSingles());
-		fpa.printSingles();
-		fpa.printCouples();
+		//fpa.printSingles();
+		//fpa.printCouples();
 		p = reverse(fpa.getWomenPartner());
-		System.out.println("singles for algOne = " + fpa.getSingles());
+		//System.out.println("singles for algOne = " + fpa.getSingles());
 	}
 
 	public void algoTwo() {
 		AlgoTwo fp = new AlgoTwo(m, w);
 		singlesForAlgoTwo.add(fp.getSingles());
-		fp.printSingles();
-		fp.printCouples();
+		//fp.printSingles();
+		//fp.printCouples();
 		p = reverse(fp.getWomenPartner());
-		System.out.println("singles for algTwo = " + fp.getSingles());
+		//System.out.println("singles for algTwo = " + fp.getSingles());
 		
 	}
 }

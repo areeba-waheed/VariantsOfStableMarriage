@@ -91,14 +91,22 @@ public class MainUI {
 
 		int average = getAverage(main.getAlgoOneInstabilities());
 		int singles = getAverage(main.getsinglesForAlgoOne());
+		int averageOfUnhappinesOfMan = getAverage(main.getunhappinessForAlgoOneMAN());
+		int averageOfUnhappinesOfWoman = getAverage(main.getunhappinessForAlgoOneWOMAN());
 		System.out.println("Average of instability of algOne: " + average);
 		System.out.println("Average of singles of algOne: " + singles);
+		System.out.println("Average of Unhappines of Man in algOne: " + averageOfUnhappinesOfMan);
+		System.out.println("Average of Unhappines of Woman in algOne: " + averageOfUnhappinesOfWoman);
 		
 		
 		singles = getAverage(main.getsinglesForAlgoTwo());
 		average = getAverage(main.getAlgoTwoInstabilities());
+		averageOfUnhappinesOfMan = getAverage(main.getunhappinessForAlgoTwoMAN());
+		averageOfUnhappinesOfWoman = getAverage(main.getunhappinessForAlgoTwoWOMAN());
 		System.out.println("Average of instability of algTwo: " + average);
 		System.out.println("Average of singles of algTwo: " + singles);
+		System.out.println("Average of Unhappines of Man in algTwo: " + averageOfUnhappinesOfMan);
+		System.out.println("Average of Unhappines of Woman in algTwo: " + averageOfUnhappinesOfWoman);
 
 		deleteFile(f);
 
@@ -126,13 +134,21 @@ public class MainUI {
 		ForbiddenMain main = new ForbiddenMain();
 		int average = getAverage(main.getAlgoOneInstabilities());
 		int singles = getAverage(main.getsinglesForAlgoOne());
+		int averageOfUnhappinesOfMan = getAverage(main.getunhappinessForAlgoOneMAN());
+		int averageOfUnhappinesOfWoman = getAverage(main.getunhappinessForAlgoOneWOMAN());
 		System.out.println("Average of instability of algOne: " + average);
 		System.out.println("Average of singles of algOne: " + singles);
+		System.out.println("Average of Unhappines of Man in algOne: " + averageOfUnhappinesOfMan);
+		System.out.println("Average of Unhappines of Woman in algOne: " + averageOfUnhappinesOfWoman);
 
 		singles = getAverage(main.getsinglesForAlgoTwo());
 		average = getAverage(main.getAlgoTwoInstabilities());
+		averageOfUnhappinesOfMan = getAverage(main.getunhappinessForAlgoTwoMAN());
+		averageOfUnhappinesOfWoman = getAverage(main.getunhappinessForAlgoTwoWOMAN());
 		System.out.println("Average of instability of algTwo: " + average);
 		System.out.println("Average of singles of algTwo: " + singles);
+		System.out.println("Average of Unhappines of Man in algTwo: " + averageOfUnhappinesOfMan);
+		System.out.println("Average of Unhappines of Woman in algTwo: " + averageOfUnhappinesOfWoman);
 
 		deleteFile(f);
 
