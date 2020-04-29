@@ -7,7 +7,7 @@ public class Main {
 	public static void main(String[] args) {
 		//D:\Program Files\eclipse-workspace\ThesisDemo\src
 		
-		java.io.File file = new java.io.File("/Users/areeba/eclipse-workspace/ThesisDemo/src/TestForbiddenScript(negatives)1.txt");
+		java.io.File file = new java.io.File("/Users/areeba/eclipse-workspace/ThesisDemo/src/TestForbiddenScript(negatives)2.txt");
 		
 		try {
 			Scanner input = new Scanner(file);
@@ -48,19 +48,20 @@ public class Main {
 			//System.out.println("Singles: " + fpa.getSingles());
 			//fpa.printPairs();
 			long startTime = System.nanoTime();
-			//ForbiddenPairsAlgTwo fp = new ForbiddenPairsAlgTwo(m, w);
+			ForbiddenPairsAlgTwo fp = new ForbiddenPairsAlgTwo(m, w); //383049 //196620
 			//fp.matchMaker();
 			//fp.printCouples();
 			//int [] p = reverse(fp.getWomenPartner());
 			
-			ForbiddenPairsAlgOne fpa = new ForbiddenPairsAlgOne(m,w);
-			//System.out.println("Singles: " + fpa.getSingles());
-			fpa.printPairs();
-			int [] p = fpa.getPair();
 			
-			 FIndInstabilitiesWithForbiddenPairs f = new FIndInstabilitiesWithForbiddenPairs(m, w, p); 
-			 f.findInstabilties(); 
-					 System.out.println(f.getInstabilities());
+			//ForbiddenPairsAlgOne fpa = new ForbiddenPairsAlgOne(m,w); //170941 //129207
+			//System.out.println("Singles: " + fpa.getSingles());
+			//fpa.printPairs();
+			//int [] p = fpa.getPair();
+			
+			 //FIndInstabilitiesWithForbiddenPairs f = new FIndInstabilitiesWithForbiddenPairs(m, w, p); 
+			// f.findInstabilties(); 
+				//	 System.out.println(f.getInstabilities()); 267515
 			long endTime = System.nanoTime();
 			 //System.out.println(endTime - startTime);
 			timeElapsed += endTime - startTime;

@@ -2,6 +2,8 @@ package stableMarriageWithIncompleteLists;
 
 import java.util.ArrayList;
 
+import stableMarriageWithForbiddenPairs.ForbiddenPairsAlgTwo;
+
 public class AlgoOne {
 
 	/*
@@ -167,6 +169,20 @@ public class AlgoOne {
 		// TODO Auto-generated method stub
 		return this.menSingles.size();
 	}
+	
+	   public static void main(String[] args) {
+
+		   int k [][] = {{1,3,0}, {1,0,0} ,{2,3,0}
+	    	
+	    	};
+	    	int l [][] = {{2,3,0}, {3,0,0} ,{2,1,3}
+	    	
+	    	};
+	    	
+	    	AlgoOne fpa = new AlgoOne(k,l);
+	    	fpa.printCouples();
+	    	fpa.printSingles();
+	    }
 
 
 }

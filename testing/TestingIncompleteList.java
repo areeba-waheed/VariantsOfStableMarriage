@@ -13,7 +13,7 @@ public class TestingIncompleteList {
 				file = new File("/Users/areeba/eclipse-workspace/ThesisDemo/src/IncompleteListScript(zeros).txt");
 				if (file.createNewFile())
 				{
-				    System.out.println("File is created!");
+				    System.out.println("");
 				} else {
 				    System.out.println("File already exists.");
 				}

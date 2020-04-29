@@ -162,4 +162,19 @@ public class ForbiddenPairsAlgOne {
     	
     	return result;
     }
+    
+    public static void main(String[] args) {
+
+        int k [][] = {{1,3,2}, {1,-3,2} ,{2,-3,-1}
+    	
+    	};
+    	int l [][] = {{2,3,-1}, {3,1,2} ,{-2,1,3}
+    	
+    	};
+    	
+    	ForbiddenPairsAlgOne fpa = new ForbiddenPairsAlgOne(k,l);
+    	//System.out.println("Singles: " + fpa.getSingles());
+    	fpa.printPairs();
+    }
+    
 }

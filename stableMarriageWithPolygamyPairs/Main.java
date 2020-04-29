@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Main {
 
 		public static void main(String[] args) {
-			java.io.File file = new java.io.File("/Users/areeba/eclipse-workspace/ThesisDemo/src/PolygamyScript.txt");// "/Users/areeba/eclipse-workspace/ThesisDemo/src/WeirdList.txt");
+			java.io.File file = new java.io.File("/Users/areeba/eclipse-workspace/ThesisDemo/src/PolygamyScript2.txt");// "/Users/areeba/eclipse-workspace/ThesisDemo/src/WeirdList.txt");
 
 			try {
 				Scanner input = new Scanner(file);
@@ -50,7 +50,7 @@ public class Main {
 					// System.out.println("Singles: " + fpa.getSingles());
 					// fpa.printPairs();
 					long startTime = System.nanoTime();
-					//PloygamyAlgorithmWithRounds fp = new PloygamyAlgorithmWithRounds(m, w);
+					//PolygamyAlgorithmWIthRounds fp = new PolygamyAlgorithmWIthRounds(m, w);
 					PolygamyMarriageTimesMen fp = new PolygamyMarriageTimesMen(m,w);
 					fp.alg();
 					fp.printCouples();

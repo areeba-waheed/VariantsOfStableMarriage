@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import stableMarriageWithForbiddenPairs.FIndInstabilitiesWithForbiddenPairs;
+import stableMarriageWithForbiddenPairs.SumOfUnhappiness;
 import stableMarriageWithIncompleteLists.AlgoOne;
 import stableMarriageWithIncompleteLists.AlgoTwo;
 import stableMarriageWithIncompleteLists.FindInstabilitiesWithIncompleteList;
@@ -18,9 +19,13 @@ public class PolygamyMain {
 	ArrayList<Integer> arrayForAlgoTwo;
 	ArrayList<Integer> singlesForAlgoOne;
 	ArrayList<Integer> singlesForAlgoTwo;
+	ArrayList<Integer> unhappinessForAlgoOneMAN;
+	ArrayList<Integer> unhappinessForAlgoOneWOMAN;
+	ArrayList<Integer> unhappinessForAlgoTwoMAN;
+	ArrayList<Integer> unhappinessForAlgoTwoWOMAN;
 	
 	public PolygamyMain() {
-		java.io.File file = new java.io.File("/Users/areeba/eclipse-workspace/ThesisDemo/src/PolygamyScript.txt");// "/Users/areeba/eclipse-workspace/ThesisDemo/src/WeirdList.txt");
+		java.io.File file = new java.io.File("/Users/areeba/eclipse-workspace/ThesisDemo/src/PolygamyScript1.txt");// "/Users/areeba/eclipse-workspace/ThesisDemo/src/WeirdList.txt");
 
 		try {
 			Scanner input = new Scanner(file);
@@ -39,6 +44,10 @@ public class PolygamyMain {
 				arrayForAlgoTwo = new ArrayList<>();
 				singlesForAlgoOne = new ArrayList<>();
 				singlesForAlgoTwo = new ArrayList<>();
+				unhappinessForAlgoOneMAN = new ArrayList<>();
+				unhappinessForAlgoOneWOMAN = new ArrayList<>();
+				unhappinessForAlgoTwoMAN = new ArrayList<>();
+				unhappinessForAlgoTwoWOMAN = new ArrayList<>();
 
 				while (whileCount < n * 3) {
 					// while(input.hasNext()) {
@@ -68,6 +77,15 @@ public class PolygamyMain {
 				//System.out.println("instability for algOne = " + f.getInstabilities());
 				arrayForAlgoOne.add(f.getInstabilities());
 				
+				SumOfUnhappinessPolygamy man1 = new SumOfUnhappinessPolygamy(m,w,p);
+				man1.findUnhappinessOfMan();
+				//System.out.println("unhappines of man in algoOne: " + man1.getUnhappinessMan());
+				unhappinessForAlgoOneMAN.add(man1.getUnhappinessMan());
+				
+				man1.findUnhappinessOfWoman();
+				unhappinessForAlgoOneWOMAN.add(man1.getUnhappinessWoman());
+				//System.out.println("unhappines of woman in algoOne: " + man1.getUnhappinessWoman());
+				
 				clearPairs();
 				
 				algoTwo();
@@ -75,7 +93,16 @@ public class PolygamyMain {
 				fp.findInstabilties();
 				//System.out.println("instability for AlgoTwo = " + fp.getInstabilities());
 				arrayForAlgoTwo.add(fp.getInstabilities());
+				
+				SumOfUnhappinessPolygamy man = new SumOfUnhappinessPolygamy(m,w,p);
+				man.findUnhappinessOfMan();
+				//System.out.println("unhappines of man in algoTwo: " + man.getUnhappinessMan());
+				unhappinessForAlgoTwoMAN.add(man.getUnhappinessMan());
 
+				man.findUnhappinessOfWoman();
+				unhappinessForAlgoTwoWOMAN.add(man.getUnhappinessWoman());
+				//System.out.println("unhappines of woman in algoTwo: " + man.getUnhappinessWoman());
+				
 				limit--;
 			}
 
@@ -116,6 +143,7 @@ public class PolygamyMain {
 			//singlesForAlgoTwo.add(fp.getSingles());
 			//fp.printSingles();
 		//fp.printCouples();
+		
 		p = makePairs(fp.getPairs());
 		//System.out.println("singles for algTwo = " + fp.getSingles());
 		
@@ -129,4 +157,9 @@ public class PolygamyMain {
 		}
 		return pairs;
 	}
+
+	public ArrayList<Integer> getunhappinessForAlgoOneMAN() { return this.unhappinessForAlgoOneMAN;}
+	public ArrayList<Integer> getunhappinessForAlgoOneWOMAN() { return this.unhappinessForAlgoOneWOMAN;}
+	public ArrayList<Integer> getunhappinessForAlgoTwoMAN() { return this.unhappinessForAlgoTwoMAN;}
+	public ArrayList<Integer> getunhappinessForAlgoTwoWOMAN() { return this.unhappinessForAlgoTwoWOMAN;}
 }

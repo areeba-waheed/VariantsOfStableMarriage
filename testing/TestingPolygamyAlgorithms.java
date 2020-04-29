@@ -12,10 +12,10 @@ public class TestingPolygamyAlgorithms {
 //random number should be the number of totalMen
 //that number will be the limit to the random preference list
 	public TestingPolygamyAlgorithms(int size) throws IOException  {
-		file = new File("/Users/areeba/eclipse-workspace/ThesisDemo/src/PolygamyScript.txt");
+		file = new File("/Users/areeba/eclipse-workspace/ThesisDemo/src/PolygamyScript2.txt");
 		if (file.createNewFile())
 		{
-		    System.out.println("File is created!");
+		    System.out.println("");
 		} else {
 		    System.out.println("File already exists.");
 		}
@@ -76,11 +76,14 @@ public class TestingPolygamyAlgorithms {
 	}
 	
 	public File getFile() {return this.file;}
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
+		TestingPolygamyAlgorithms k = new TestingPolygamyAlgorithms(5);
 	}
 
 	public static int randomNumber(int min, int max) {
 		int rand = (int) (Math.random() * ((max - min) + 1)) + min;
 		return rand;
 	}
+	
+	
 }

@@ -32,6 +32,7 @@ public class ForbiddenPairsAlgTwo {
     	 womenSingles = new ArrayList<>();  
     	 womenPartner = new int [totalMen]; 
     	 marriedWomen = new boolean[totalMen];
+    	 matchMaker();
 	
     }
     public int [] getWomenPartner() {return this.womenPartner;}
@@ -143,6 +144,7 @@ public class ForbiddenPairsAlgTwo {
     		}
     	}else {
     		//marry them
+    		//System.out.println("marry them dammit");
     		marryThem(woman,man);
     	}
 		
@@ -150,6 +152,7 @@ public class ForbiddenPairsAlgTwo {
 
 	/*CHECKS IF NOT FORBIDDEN FOR EACHOTHER*/
 	private boolean notForbidden(int woman, int man) {
+		if(woman == 0) return false;
 		int pref []  = womenPref[Math.abs(woman)-1];
 		if(woman > 0) { //choice is positive
 			for(int j =0; j < pref.length; j++) { //for all men in choiced woman list
@@ -165,5 +168,19 @@ public class ForbiddenPairsAlgTwo {
 		// TODO Auto-generated method stub
 		return this.menSingles.size();
 	}
+	
+	   public static void main(String[] args) {
+
+		   int k [][] = {{1,3,2}, {1,-3,2} ,{2,-3,-1}
+	    	
+	    	};
+	    	int l [][] = {{2,3,-1}, {3,1,2} ,{-2,1,3}
+	    	
+	    	};
+	    	
+	    	ForbiddenPairsAlgTwo fpa = new ForbiddenPairsAlgTwo(k,l);
+	    	fpa.printCouples();
+	    	fpa.printSingles();
+	    }
 
 }

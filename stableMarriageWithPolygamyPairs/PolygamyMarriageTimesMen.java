@@ -158,4 +158,35 @@ public class PolygamyMarriageTimesMen {
 
 		}
 	}
+	
+	   public static void main(String[] args) {
+
+		   int k [][] = {{3,5,1,6,4,2}, {1,6,4,3,2,5} ,{2,4,6,3,1,5}
+	    	
+	    	};
+
+	    	int l [][] = {{2,3,1}, {3,1,2} ,{2,1,3}, {3,2,1}, {1,2,3}, {2,1,3}
+	    	
+	    	};
+
+	    	PolygamyMarriageTimesMen fpa = new PolygamyMarriageTimesMen(k,l);
+	    	fpa.printCouples();
+	    	int [] q = fpa.getPairs();
+			int [][] p = makePairs(q);
+	    	
+	    	FindInstabilitiesForPolygamy f = new FindInstabilitiesForPolygamy(k,l,p);
+	    	f.findInstabilties();
+			System.out.println(f.getInstabilities());
+
+	    }
+	   
+	   private static int[][] makePairs(int [] q) {
+			int [][] p = new int [q.length][2];
+			for(int i = 0; i< q.length;i++) {
+				p[i][1]=q[i];
+				p[i][0] = i+1;
+			}
+			return p;
+		}
 }
+

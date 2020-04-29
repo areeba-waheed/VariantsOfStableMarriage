@@ -60,6 +60,8 @@ public class TestingForbiddenPairs {
 	public File getFile() {return this.file;}
 
 	public static void main(String[] args) throws IOException {
+		TestingForbiddenPairs t = new TestingForbiddenPairs(100);
+		
 	}
 
 	public static int randomNumber(int min, int max) {
