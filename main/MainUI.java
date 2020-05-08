@@ -18,10 +18,10 @@ public class MainUI {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 
-		System.out.println("Pick a Stable Marriage Variant: ");
-		System.out.println("1 Stable Marriage With Forbidden Pairs ");
-		System.out.println("2 Stable Marriage with Incomplete Pairs ");
-		System.out.println("3 Stable Mariage with Polygamous Pairs ");
+		System.out.println("Pick a Stable Matching Variant: ");
+		System.out.println("1 Stable Matching With Forbidden Pairs ");
+		System.out.println("2 Stable Matching with Incomplete Pairs ");
+		System.out.println("3 Stable Matching with Polygamous Pairs ");
 
 		int variant = scan.nextInt();
 
